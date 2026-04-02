@@ -81,17 +81,25 @@ Tools for persisting agent context, shared knowledge, cross-session memory, and 
 - [LangMem](https://github.com/langchain-ai/langmem) - LangChain's memory abstraction layer. Multiple memory types (episodic, semantic, procedural) with a unified API.
 - [Supermemory](https://github.com/supermemoryai/supermemory) - Universal memory API for AI agents. Import from anywhere, query with semantic search. Designed as a "memory backbone" across multiple agents.
 - [Redis (State Management)](https://redis.io) - Fast in-memory store for short-term agent state, session data, and distributed locks. Essential for stateful multi-agent systems requiring sub-millisecond access.
+- [Chroma](https://github.com/chroma-core/chroma) - Open-source embedding database. The most popular vector store for agent memory. Simple API, runs locally or in the cloud. pip install chromadb.
+- [Qdrant](https://github.com/qdrant/qdrant) - High-performance vector database written in Rust. Excellent for production agent long-term memory with filtering, payload indexing, and sparse vector support.
+- [Weaviate](https://github.com/weaviate/weaviate) - Open-source vector database with built-in vectorization. Modules for text, images, and multi-modal memory. Native GraphQL API.
+- [Pinecone](https://www.pinecone.io) - Managed vector database. Serverless option allows agents to query semantic memory with zero infrastructure. Widely used in production agent deployments.
+- [Haystack DocumentStore](https://docs.haystack.deepset.ai/docs/document-store) - Pluggable document store interface for Haystack agents. Supports Elasticsearch, OpenSearch, Weaviate, Pinecone, and more. Uniform API across backends.
 
 ---
 
 ## Identity & Trust
 
-Specifications and tools for establishing agent identity, authentication, and trust relationships between agents.
+Specifications and tools for establishing agent identity, authentication, and trust relationships between agents. The defining security challenge of 2026.
 
 - [A2A Agent Cards](https://a2a-protocol.org/latest/topics/agent-discovery/) - A2A protocol standard for agent self-description. Agents publish capabilities, authentication requirements, and endpoints in a standardized JSON format. Enables dynamic agent discovery.
-- [OAuth 2.0 for AI Agents](https://oauth.net/2/) - Using OAuth 2.0 / DPoP for agent-to-agent authorization. Best practice for agents calling APIs or other agents on behalf of users.
+- [SPIFFE / SPIRE](https://spiffe.io) - Production-grade workload identity framework. Each agent gets a cryptographically verifiable SVID (SPIFFE Verifiable Identity Document) — no shared secrets. SPIRE handles issuance, rotation, and revocation. The current best practice for secure agent-to-agent mTLS.
+- [WIMSE (Workload Identity and Minimal Secrets)](https://datatracker.ietf.org/doc/draft-ietf-wimse-arch/) - IETF working group standard for workload/agent identity in cloud environments. Combines SPIFFE, OAuth 2.0, and token exchange for agent delegation. First draft published 2025, actively developed 2026.
+- [OAuth 2.0 for AI Agents](https://oauth.net/2/) - Using OAuth 2.0 / DPoP for agent-to-agent authorization. Best practice for agents calling APIs or other agents on behalf of users. IETF draft (draft-klrc-aiagent-auth-00) published March 2026.
 - [DID (Decentralized Identifiers)](https://www.w3.org/TR/did-core/) - W3C standard for cryptographic agent identity without central authority. Used as the foundation for ANP and decentralized agent networks.
-- [Anthropic Claude's Constitution](https://claude.ai/trust-protocol) - Emerging concept of agent trust hierarchies and behavior guarantees. Relevant for multi-agent systems where one agent orchestrates others.
+- [WorkOS](https://workos.com) - Enterprise identity and auth platform increasingly used for AI agent authorization. Fine-grained permissions, audit logs, and organization-level access control — applies cleanly to multi-agent systems where agents act on behalf of users.
+- [Permit.io](https://permit.io) - Policy-based authorization for apps and agents. Define what agents are allowed to do via ReBAC/ABAC policies. Supports runtime policy updates without redeploy.
 
 ---
 
@@ -106,6 +114,9 @@ Tools for tracing, monitoring, evaluating, and debugging multi-agent systems in 
 - [Maxim AI](https://www.getmaxim.ai) - Agent quality and observability platform. Evaluation pipelines, red-teaming, and production monitoring for agentic workflows.
 - [OpenTelemetry](https://opentelemetry.io) - Vendor-neutral observability framework. Use with [OpenLLMetry](https://github.com/traceloop/openllmetry) for LLM-specific spans and agent traces.
 - [Weights & Biases Weave](https://weave-docs.wandb.ai) - W&B's LLM observability platform. Trace, evaluate, and monitor agent runs with rich visualization.
+- [Traceloop / OpenLLMetry](https://github.com/traceloop/openllmetry) - OpenTelemetry-based LLM observability. Automatic instrumentation for LangChain, CrewAI, AutoGen, and 20+ frameworks. Sends traces to any OTel-compatible backend (Datadog, Grafana, etc.).
+- [Helicone](https://github.com/Helicone/helicone) - Open-source LLM observability and caching proxy. Drop-in for OpenAI/Anthropic/Gemini. Per-request latency, cost, and error tracking with user-level attribution.
+- [Honeyhive](https://honeyhive.ai) - Agent evaluation and monitoring platform. Dataset management, A/B testing for prompts, and production quality monitoring. Focus on multi-step agent workflows.
 
 ---
 
@@ -119,6 +130,10 @@ SDKs, CLIs, and utilities that accelerate building multi-agent systems.
 - [BeeAI Framework](https://github.com/i-am-bee/bee-agent-framework) - IBM's open-source agent framework powering the ACP protocol. Production-ready with tool use, memory, and structured output.
 - [FastMCP](https://github.com/jlowin/fastmcp) - The fastest way to build MCP servers in Python. Decorator-based API similar to FastAPI. Used by tens of thousands of MCP server authors. Now part of the official MCP Python SDK.
 - [Composio](https://github.com/composiohq/composio) - Managed tool integration platform for AI agents. 250+ pre-built integrations (GitHub, Slack, Notion, etc.) with auth management. Works with LangChain, CrewAI, AutoGen, and any agent framework.
+- [Portkey AI Gateway](https://github.com/Portkey-AI/gateway) - Open-source AI gateway with fallbacks, retries, load balancing, and request routing across 200+ LLMs. Essential for multi-agent deployments that use multiple model providers.
+- [LiteLLM](https://github.com/BerriAI/litellm) - Unified API for 100+ LLMs. Use the same code to call OpenAI, Anthropic, Gemini, Groq, Ollama. Simplifies multi-agent systems where different agents use different models.
+- [instructor](https://github.com/jxnl/instructor) - Structured output extraction from LLMs using Pydantic. Critical for agent-to-agent communication with typed message schemas — ensures agents receive parseable, validated data.
+- [Arcade AI](https://github.com/ArcadeAI/arcade-ai) - Managed tool execution platform for AI agents. Secure, sandboxed execution with auth flows for enterprise tools. Reduces the surface area for agent security incidents.
 
 ---
 
@@ -131,6 +146,9 @@ Reference implementations and worked examples of multi-agent collaboration patte
 - [multi-agent-patterns](https://github.com/masstensor/multi-agent-patterns) - Common patterns for building multi-agent systems with code examples. Covers pipeline, fan-out, consensus, and critic patterns.
 - [Google A2A Samples](https://github.com/google-a2a/a2a-samples) - Official Google samples for A2A protocol. Best starting point for understanding Agent Cards and task lifecycle.
 - [AutoGen Examples](https://github.com/microsoft/autogen/tree/main/samples) - Microsoft's reference examples for AutoGen agent patterns including group chat and code execution.
+- [LangGraph Multi-Agent Examples](https://github.com/langchain-ai/langgraph/tree/main/examples) - Official LangGraph examples covering supervisor, hierarchical, and collaborative multi-agent patterns with state management.
+- [CrewAI Examples](https://github.com/crewAIInc/crewAI-examples) - Official CrewAI examples including trip planner, stock analysis, and game builder crews. Best starting point for role-based multi-agent systems.
+- [IM for Agents — 3 curl demo](https://masstensor.github.io/im-for-agents/) - Minimal demo of agent-to-agent messaging with 3 HTTP calls — no SDK, no framework. Shows the baseline for any cross-framework agent coordination.
 
 ---
 
@@ -144,6 +162,9 @@ Articles, specs, and guides for understanding the multi-agent collaboration land
 - [AI Agent Protocol Ecosystem Map 2026](https://www.digitalapplied.com/blog/ai-agent-protocol-ecosystem-map-2026-mcp-a2a-acp-ucp) - Visual overview of the complete agent protocol landscape.
 - [Survey of Agent Interoperability Protocols](https://arxiv.org/html/2505.02279v1) - Academic survey covering MCP, ACP, A2A, and ANP.
 - [120+ Agentic AI Tools Mapped (2026)](https://www.stackone.com/blog/ai-agent-tools-landscape-2026/) - Comprehensive landscape map across 11 agent tool categories.
+- [4 Patterns AI Agents Use to Coordinate](https://masstensor.github.io/im-for-agents/blog-coordination-patterns.html) - Practical guide: shared files, MCP, Kafka, and REST messaging — when each pattern breaks in production.
+- [The Agent Identity Playbook (2026)](https://www.strata.io/blog/agentic-identity/new-identity-playbook-ai-agents-not-nhi-8b/) - How to think about non-human identity (NHI) for AI agents in enterprise environments.
+- [Securing AI Agents: The Defining Cybersecurity Challenge of 2026](https://www.bvp.com/atlas/securing-ai-agents-the-defining-cybersecurity-challenge-of-2026) - Bessemer VP analysis of the agent security landscape — permissions, secrets, and trust boundaries.
 
 ---
 
