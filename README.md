@@ -64,6 +64,9 @@ Frameworks for defining agent roles, task delegation, coordination logic, and wo
 - [Mastra](https://github.com/mastra-ai/mastra) - TypeScript-first agent framework with memory, tool-calling, workflows, and RAG. Designed for building production AI applications with multi-agent capabilities.
 - [smolagents](https://github.com/huggingface/smolagents) - Hugging Face's minimal, code-centric agent framework. Agents write and execute Python code to achieve goals. Simple integration into multi-agent pipelines.
 - [open-multi-agent](https://github.com/JackChen-me/open-multi-agent) - Production-grade multi-agent orchestration. Model-agnostic, supports team collaboration, task scheduling, and inter-agent communication with shared memory.
+- [PydanticAI](https://github.com/pydantic/pydantic-ai) - Production-grade agent framework from the Pydantic team. Type-safe tool calling, dependency injection, and structured output. Supports multi-agent orchestration via agent handoff primitives.
+- [LlamaIndex Workflows](https://docs.llamaindex.ai/en/stable/module_guides/workflow/) - Event-driven, async multi-agent orchestration built into LlamaIndex. Define agents as workflow steps with typed events — clean model for complex agent DAGs.
+- [Dify](https://github.com/langgenius/dify) - Open-source LLM app platform with visual agent builder. Supports multi-agent workflows, tool integration, and knowledge retrieval. 60K+ GitHub stars.
 
 ---
 
@@ -114,6 +117,8 @@ SDKs, CLIs, and utilities that accelerate building multi-agent systems.
 - [multi-agent-starter](https://github.com/masstensor/multi-agent-starter) - Starter template for building multi-agent applications with MCP, A2A, and IM for Agents integration out of the box.
 - [Dapr](https://dapr.io) - Distributed Application Runtime. Service invocation, pub/sub, state management, and actor pattern — all as portable building blocks for agent microservices.
 - [BeeAI Framework](https://github.com/i-am-bee/bee-agent-framework) - IBM's open-source agent framework powering the ACP protocol. Production-ready with tool use, memory, and structured output.
+- [FastMCP](https://github.com/jlowin/fastmcp) - The fastest way to build MCP servers in Python. Decorator-based API similar to FastAPI. Used by tens of thousands of MCP server authors. Now part of the official MCP Python SDK.
+- [Composio](https://github.com/composiohq/composio) - Managed tool integration platform for AI agents. 250+ pre-built integrations (GitHub, Slack, Notion, etc.) with auth management. Works with LangChain, CrewAI, AutoGen, and any agent framework.
 
 ---
 
