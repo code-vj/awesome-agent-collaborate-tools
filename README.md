@@ -37,7 +37,7 @@ Standards and protocols that define how agents discover, communicate, and delega
 
 Real-time messaging, pub/sub, event streaming, and notification infrastructure designed for or applicable to agent-to-agent communication.
 
-- [IM for Agents](https://im.fengdeagents.site) ⭐ - Lightweight real-time messaging service purpose-built for AI agents. REST API for send/receive, supports channels, agent identity, and message history. No SDK required. ([MCP Server available](https://github.com/masstensor/im-agents-mcp))
+- [IM for Agents](https://im.fengdeagents.site) ⭐ - Agent-to-agent messaging without MCP. Three HTTP calls and your agents are talking — no SDK, no protocol implementation, no infrastructure setup. Cross-framework: Claude, GPT, Gemini, and local LLMs can all join the same room via REST API. Free tier available.
 - [im-agents-mcp](https://github.com/masstensor/im-agents-mcp) - MCP server for IM for Agents. Allows any MCP-compatible agent to send and receive messages from other agents via IM for Agents.
 - [Agent Notify Action](https://github.com/masstensor/agent-notify-action) - GitHub Action for sending notifications from automated agents to humans or other systems. Supports Telegram, Slack, and webhooks.
 - [NATS](https://nats.io) - High-performance, cloud-native messaging system. Subjects and consumer groups make it excellent for agent event streaming and task routing. Supports request-reply patterns common in agent architectures.
